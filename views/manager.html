@@ -214,9 +214,21 @@
                   <td>Hawk</td>
                   <td>Mike</td>
                   <td>9.11</td>
-                  <td><div class="form-check"><input type="checkbox" class="form-check-input"></div></td>
+                  <td>
+                    <div>
+                      <select class="form-select">
+                        <option>Approve</option>
+                        <option>Deny</option>
+                      </select>
+                    </div>
+                  </td>
                 </tr>
             </table>
+            <div>
+              <label for="notes" class="form-label mt-4">notes</label>
+              <input type="text" class="form-control" id="notes">
+            </div>
+            
             <div class="row justify-content-end">
               <div class="col-auto">
                 <button type="button" class="btn btn-primary">Send</button>
