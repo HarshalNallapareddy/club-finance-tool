@@ -54,12 +54,12 @@
   
     <script>
       // Sample data (replace with your actual data)
-      const cardsData = [
-        { title: "Virginia Rugby", category: "Club Rugby Team" },
-        { title: "HooHacks", category: "Hackathon" },
-        { title: "UPC", category: "University Programs" },
-        // Add more cards data as needed
-      ];
+      let stringList = ["Virginia Rugby", "HooHacks", "UPC", "EkTaal"];
+
+      const cardsData = []
+      for (let i = 0; i < stringList.length; i++) {
+        cardsData[i] = { title: stringList[i] };
+      }
       
       // Function to render cards
       function renderCards(searchQuery) {
@@ -68,14 +68,12 @@
         
         cardsData.forEach(card => {
           // If the search query matches the card title or category, render the card
-          if (card.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-              card.category.toLowerCase().includes(searchQuery.toLowerCase())) {
+          if (card.title.toLowerCase().includes(searchQuery.toLowerCase())) {
             const cardHtml = `
               <div class="col-md-4 mb-4">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">${card.title}</h5>
-                    <p class="card-text">${card.category}</p>
                   </div>
                 </div>
               </div>`;
