@@ -55,7 +55,7 @@
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Member List</a>
               <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab">Request Reimbursement</a>
-              <a class="nav-link" id="v-pills-pay-tab" data-toggle="pill" href="#v-pills-pay" role="tab">Pay Dues</a>
+              <a class="nav-link" id="v-pills-pay-tab" data-toggle="pill" href="#v-pills-pay" role="tab" data-toggle="modal" data-target="#exampleModal">Pay Dues</a>
             </div>
           </div>
           <div class="col-md-9">
@@ -86,38 +86,32 @@
                       </tr>
                   </table>
                 </div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <h3>Request Reimbursement</h3>
-                <div>
-                    <div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="exampleModalLabel">Request Reimbursement</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Dollar Amount</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ex. 420.69">
-                    </div>
-                    <div>
-                        <label for="exampleTextarea" class="form-label mt-4">Description of Event</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-auto">
-                          <button type="button" class="btn btn-primary">Submit</button>
-                        </div>
                       </div>
-                </div>
-          </div>
-
-          <div class="tab-pane fade" id="v-pills-pay" role="tabpanel" aria-labelledby="v-pills-pay-tab">
-            <h3>Pay Dues</h3>
-            <div>
-                <div>
-                    <label for="examplePayDues" class="form-label mt-4">Dollar Amount</label>
-                    <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 420.69">
-                </div>
-                <div class="row justify-content-end">
-                    <div class="col-auto">
+                      <div>
+                          <label for="exampleTextarea" class="form-label mt-4">Description of Event</label>
+                          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-primary">Submit</button>
                     </div>
                   </div>
-            </div>
+                </div>
+              </div>
           </div>
         </div>
       </div> 
