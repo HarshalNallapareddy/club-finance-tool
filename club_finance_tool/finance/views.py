@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from django.urls import reverse_lazy
 from django.views import generic
-
+from finance.models import User, Club
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
@@ -24,14 +24,16 @@ def register_view(request):
 
 @login_required
 def general_user_view(request):
-    user = request.user
-    clubs = user.clubs.all()
-    context = {
-        'user': user,
-        'clubs': clubs
-    }
-    return render(request, 'finance/general_user.html', context=context)
-
+    username = request.user.username
+    user_instance = User.objects.get(email=username)
+    managed_clubs = len(user_instance.manager_of.all())
+    memmber_clubs = []
+    managed_clubs = []
+    for club in user_instance.manager_of.all():
+        managed_clubs.append(club.name)
+    for club in user_instance.member_of.all():
+        memmber_clubs.append(club.name)
+    return render(request, 'finance/general_user.html', {'username': username, 'managed_clubs': managed_clubs, 'member_clubs': memmber_clubs})
 @login_required
 def member_view(request):
     user = request.user
@@ -56,10 +58,17 @@ def user_payment(request):
     user = request.user
     return render(request, 'finance/payment.html')
 
+@login_required
 def reimbursement(request):
     user = request.user
     return render(request, 'finance/reimbursement.html')
 
+@login_required
 def institution(request):
     user = request.user
     return render(request, 'finance/institution.html')
+
+@login_required
+def general_user(request):
+    user = request.user
+    return render(request, 'finance/general_user.html')
