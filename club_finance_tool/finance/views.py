@@ -28,4 +28,12 @@ def institution_view(request):
 
 def user_payment(request):
     user = request.user
-    return render(request, 'finance/user_payment.html')
+    return render(request, 'finance/payment.html')
+
+def reimbursement(request):
+    user = request.user
+    return render(request, 'finance/reimbursement.html')
+
+def institution(request):
+    user = request.user
+    return render(request, 'finance/institution.html')
