@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">CFT</a>
+          <img class="navbar-brand" src="cftlogo.png" width="7.5%">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -134,9 +134,27 @@
                       </tr>
                       <tr>
                         <th scope="row">2</th>
+                        <td>03/16/24</td>
+                        <td>Travel Expenses</td>
+                        <td>34.91</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>03/01/24</td>
+                        <td>Senior Gifts</td>
+                        <td>12.22</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
                         <td>02/29/24</td>
                         <td>New Equipment</td>
                         <td>54.67</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <th scope="row" style="text-align: right;">Total</th>
+                        <td>120.78</td>
                       </tr>
                   </table>
                   <hr class="my-4">
@@ -145,11 +163,11 @@
                     <div class="row">
                       <div class="col-md-4">
                         <label for="date" class="form-label mt-4">Date</label>
-                        <input type="date" id="date" class="form-control" placeholder="ex. 09/11/01">
+                        <input type="date" id="date" class="form-control">
                       </div>
                       <div class="col-md-4">
                         <label for="amount" class="form-label mt-4">Dollar Amount</label>
-                        <input type="number" id="amount" class="form-control" placeholder="ex. 420.69">
+                        <input type="number" id="amount" class="form-control" placeholder="ex. 12.50">
                       </div>
                       <div class="col-md-4">
                         <label for="descr" class="form-label mt-4">Description</label>
@@ -168,7 +186,7 @@
                 <div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Dollar Amount</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ex. 420.69">
+                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ex. 12.50">
                     </div>
                     <div>
                         <label for="exampleTextarea" class="form-label mt-4">Description of Event</label>
@@ -186,7 +204,7 @@
             <div>
                 <div>
                     <label for="exampleInputDues" class="form-label mt-4">Dollar Amount</label>
-                    <input type="number" class="form-control" id="exampleInputDues" placeholder="ex. 420.69">
+                    <input type="number" class="form-control" id="exampleInputDues" placeholder="ex. 12.50">
                 </div>
                 <div class="row justify-content-end">
                     <div class="col-auto">
@@ -204,16 +222,19 @@
                   <th scope="col">Member</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">First Name</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Approve</th>
+                  <th scope="col">Notes</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Hawk</td>
-                  <td>Mike</td>
-                  <td>9.11</td>
+                  <td>Irfan</td>
+                  <td>Ahmed</td>
+                  <td>Team Lunch</td>
+                  <td>9.13</td>
                   <td>
                     <div>
                       <select class="form-select">
@@ -222,12 +243,25 @@
                       </select>
                     </div>
                   </td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Yang</td>
+                  <td>Carl</td>
+                  <td>Hotel Stay</td>
+                  <td>145.23</td>
+                  <td>
+                    <div>
+                      <select class="form-select">
+                        <option>Approve</option>
+                        <option>Deny</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td><input type="text" class="form-control"></td>
                 </tr>
             </table>
-            <div>
-              <label for="notes" class="form-label mt-4">notes</label>
-              <input type="text" class="form-control" id="notes">
-            </div>
             
             <div class="row justify-content-end">
               <div class="col-auto">
@@ -241,7 +275,7 @@
             <div>
                 <div>
                     <label for="examplePayDues" class="form-label mt-4">Dollar Amount</label>
-                    <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 420.69">
+                    <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 12.50">
                 </div>
                 <div class="row justify-content-end">
                     <div class="col-auto">

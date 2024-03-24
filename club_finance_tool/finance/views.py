@@ -29,11 +29,35 @@ def general_user_view(request):
     managed_clubs = len(user_instance.manager_of.all())
     memmber_clubs = []
     managed_clubs = []
+    all_clubs = []
+    if user_instance.is_institution:
+        for club in Club.objects.all():
+            all_clubs.append(club.name)
+        context = {
+            'username': username,
+            'managed_clubs': managed_clubs,
+            'member_clubs': memmber_clubs,
+            'all_clubs': all_clubs,
+            'if_admin' : 1
+        }
+        return render(request, 'finance/general_user.html', context)
+            
     for club in user_instance.manager_of.all():
         managed_clubs.append(club.name)
     for club in user_instance.member_of.all():
         memmber_clubs.append(club.name)
-    return render(request, 'finance/general_user.html', {'username': username, 'managed_clubs': managed_clubs, 'member_clubs': memmber_clubs})
+    
+    my_variable = "Hello, Django!"
+    context = {
+        'my_variable': my_variable,
+        'username': username,
+        'managed_clubs': managed_clubs,
+        'member_clubs': memmber_clubs,
+        'all_clubs': all_clubs,
+        'if_admin' : 0
+    }
+    return render(request, 'finance/general_user.html', context)
+
 @login_required
 def member_view(request):
     user = request.user
@@ -62,11 +86,6 @@ def user_payment(request):
 def reimbursement(request):
     user = request.user
     return render(request, 'finance/reimbursement.html')
-
-@login_required
-def institution(request):
-    user = request.user
-    return render(request, 'finance/institution.html')
 
 @login_required
 def general_user(request):
