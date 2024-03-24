@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap.min.css">
@@ -12,7 +11,6 @@
     
   </head>
   <body>
-
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">CFT</a>
@@ -41,7 +39,6 @@
           </div>
         </div>
       </nav>
-
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Virginia Rugby</h1>
@@ -55,7 +52,7 @@
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Member List</a>
               <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab">Request Reimbursement</a>
-              <a class="nav-link" id="v-pills-pay-tab" data-toggle="pill" href="#v-pills-pay" role="tab">Pay Dues</a>
+              <a class="nav-link" id="v-pills-pay-tab" data-toggle="pill" href="#v-pills-pay" role="tab" data-toggle="modal" data-target="#exampleModalCenter">Pay Dues</a>
             </div>
           </div>
           <div class="col-md-9">
@@ -68,6 +65,7 @@
                         <th scope="col">Member</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">First Name</th>
+                        <th scope="col">Statusi</th>
                         <th scope="col">Status</th>
                       </tr>
                     </thead>
@@ -104,24 +102,28 @@
                       </div>
                 </div>
           </div>
-
-          <div class="tab-pane fade" id="v-pills-pay" role="tabpanel" aria-labelledby="v-pills-pay-tab">
-            <h3>Pay Dues</h3>
-            <div>
-                <div>
-                    <label for="examplePayDues" class="form-label mt-4">Dollar Amount</label>
-                    <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 420.69">
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="exampleModalLongTitle">Pay Dues</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-auto">
-                      <button type="button" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
+                <div class="modal-body">
+                  <label for="examplePayDues" class="form-label mt-4">Dollar Amount</label>
+                  <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 420.69">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div> 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
