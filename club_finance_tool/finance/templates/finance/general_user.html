@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>General</title>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <img class="navbar-brand" src="cftlogo.png" width="7.5%">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sign Out</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="cftlogojumbotron.png" width="75%">
+          </div>
+          <div class="col-md-9">
+            <h1>Club Finance Tool (CFT)</h1>
+            <p class="lead">A book-keeping and transactional software for Contracted Independent Organizations (CIOs). </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <!-- Search input -->
+      <div class="form-group">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+      </div>
+      
+      <!-- Card container -->
+      <div class="row mt-4" id="card-container">
+        <!-- Cards will be dynamically added here -->
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <script>
+      // Sample data (replace with your actual data)
+      let managedList = {{ managed_clubs|safe }};
+      stringList = managedList;
+      let memberList = {{ member_clubs|safe }};
+      memberList.push("Virginia Rugby");
+      // let stringList = ["Virginia Rugby", "HooHacks", "UPC", "EkTaal"];
+      const cardsData = [];
+      for (let i = 0; i < managedList.length; i++) {
+        cardsData.push({ title: managedList[i], category: 'Manager', url: "{% url 'manager' %}" });
+      }
+      for (let i = 0; i < memberList.length; i++) {
+        cardsData.push({ title: memberList[i], category: 'Member', url: "{% url 'member' %}"});
+      }
+      
+      // Function to render cards
+      function renderCards(searchQuery) {
+        const cardContainer = document.getElementById('card-container');
+        cardContainer.innerHTML = ''; // Clear existing cards
+        
+        cardsData.forEach(card => {
+          // If the search query matches the card title or category, render the card
+          if (card.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+            const cardHtml = `
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${card.title}</h5>
+                    <p class="card-text">${card.category}</p>
+                    <a href="{{}}"></a>
+                  </div>
+                </div>
+              </div>`;
+            cardContainer.innerHTML += cardHtml;
+          }
+        });
+      }
+      
+      // Initial rendering
+      renderCards('');
+      
+      // Event listener for search input
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const searchQuery = this.value.trim(); // Get search query value and remove leading/trailing whitespace
+        renderCards(searchQuery);
+      });
+    </script>
+  
+  </body>
+</html>
