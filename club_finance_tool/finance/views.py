@@ -33,7 +33,16 @@ def general_user_view(request):
         managed_clubs.append(club.name)
     for club in user_instance.member_of.all():
         memmber_clubs.append(club.name)
-    return render(request, 'finance/general_user.html', {'username': username, 'managed_clubs': managed_clubs, 'member_clubs': memmber_clubs})
+    
+    my_variable = "Hello, Django!"
+    context = {
+        'my_variable': my_variable,
+        'username': username,
+        'managed_clubs': managed_clubs,
+        'member_clubs': memmber_clubs
+    }
+    return render(request, 'finance/general_user.html', context)
+
 @login_required
 def member_view(request):
     user = request.user
