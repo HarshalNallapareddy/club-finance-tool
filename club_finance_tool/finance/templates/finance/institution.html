@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institution View</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Institution View</h1>
+        <h2>Clubs:</h2>
+        <ul>
+            {% for club in clubs %}
+            <li>{{ club.name }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Requests:</h2>
+        <ul>
+            {% for request in requests %}
+            <li>{{ request }}</li>
+            {% endfor %}
+        </ul>
+        <button type="submit" class="button" name="button1">Button 1</button>
+        <button type="submit" class="button" name="button2">Button 2</button>
+        <button type="button" class="button" id='button3' name="button3">Button 3</button>
+        <div id="textbox" style="display: none;">
+            <label for="text" class="hidden">Text:</label>
+            <input type="text" id="text" name="text">
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("button3").addEventListener("click", function() {
+                    var textBox = document.getElementById("textbox");
+                    if (textBox.style.display === "none" || textBox.style.display === "") {
+                        textBox.style.display = "block";
+                    } 
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
