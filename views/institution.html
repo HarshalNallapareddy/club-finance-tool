@@ -4,13 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <title>Member</title>
+    <title>Manager</title>
     
   </head>
   <body>
+
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">CFT</a>
@@ -39,26 +41,27 @@
           </div>
         </div>
       </nav>
+
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Virginia Rugby</h1>
           <p class="lead">We play rugby!</p>
         </div>
       </div>
-    
+
       <div class="container">
         <div class="row">
           <div class="col-md-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Member List</a>
-              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab">Request Reimbursement</a>
-              <a class="nav-link" id="v-pills-pay-tab" data-toggle="pill" href="#v-pills-pay" role="tab" data-toggle="modal" data-target="#exampleModalCenter">Pay Dues</a>
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Members List</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab">Expenses</a>
+              <a class="nav-link" id="v-pills-re-tab" data-toggle="pill" href="#v-pills-re" role="tab">Pending Reimbursements</a>
             </div>
           </div>
           <div class="col-md-9">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <h3>Manage Members</h3>
+                <h3>Members List</h3>
                 <table class="table table-hover">
                     <thead>
                       <tr>
@@ -75,7 +78,7 @@
                         <td>John</td>
                         <td>Admin</td>
                       </tr>
-                      <tr class="table-danger">
+                      <tr>
                         <th scope="row">2</th>
                         <td>Jackson</td>
                         <td>Jamal</td>
@@ -83,46 +86,73 @@
                       </tr>
                   </table>
                 </div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <h3>Request Reimbursement</h3>
-                <div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <h3>Expenses</h3>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Entry</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>03/23/24</td>
+                        <td>Practice Snacks</td>
+                        <td>18.98</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>02/29/24</td>
+                        <td>New Equipment</td>
+                        <td>54.67</td>
+                      </tr>
+                  </table>
+              </div>
+          <div class="tab-pane fade" id="v-pills-re" role="tabpanel" aria-labelledby="v-pills-re-tab">
+            <h3>Pending Reimbursements</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Member</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Approve</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Hawk</td>
+                  <td>Mike</td>
+                  <td>9.11</td>
+                  <td>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Dollar Amount</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ex. 420.69">
+                      <select class="form-select">
+                        <option>Approve</option>
+                        <option>Deny</option>
+                      </select>
                     </div>
-                    <div>
-                        <label for="exampleTextarea" class="form-label mt-4">Description of Event</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-auto">
-                          <button type="button" class="btn btn-primary">Submit</button>
-                        </div>
-                      </div>
-                </div>
-          </div>
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h3 class="modal-title" id="exampleModalLongTitle">Pay Dues</h3>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <label for="examplePayDues" class="form-label mt-4">Dollar Amount</label>
-                  <input type="number" class="form-control" id="examplePayDues" placeholder="ex. 420.69">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Submit</button>
-                </div>
+                  </td>
+                </tr>
+            </table>
+            <div>
+              <label for="notes" class="form-label mt-4">notes</label>
+              <input type="text" class="form-control" id="notes">
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="button" class="btn btn-primary">Send</button>
               </div>
             </div>
           </div>
         </div>
       </div> 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
