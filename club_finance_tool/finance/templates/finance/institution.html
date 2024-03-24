@@ -8,32 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <title>Manager</title>
+    <title>Admin</title>
     
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">CFT</a>
+          <img class="navbar-brand" src="cftlogo.png" width="7.5%">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Virginia Rugby
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">HooHacks</a>
+                <a class="nav-link" href="#">All Clubs</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Profile</a>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Sign Out</a>
                 </li>
@@ -44,8 +36,15 @@
 
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Virginia Rugby</h1>
-          <p class="lead">We play rugby!</p>
+          <div class="row">
+            <div class="col-md-2">
+              <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/278117660_469574164965152_4966587906968196499_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=UdggqfJhFnkAX9heb-T&_nc_ht=scontent-iad3-2.xx&oh=00_AfCTuf6JsQIC0efnsyEWioofNXoOkkdk_QZfOApK9GtcXw&oe=660534FA" width="75%" style="border-radius: 50%;">
+            </div>
+            <div class="col-md-10">
+              <h1 class="display-4">Virginia Rugby</h1>
+              <p class="lead">We play rugby!</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -55,7 +54,7 @@
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Members List</a>
               <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab">Expenses</a>
-              <a class="nav-link" id="v-pills-re-tab" data-toggle="pill" href="#v-pills-re" role="tab">Pending Reimbursements</a>
+              <a class="nav-link" id="v-pills-re-tab" data-toggle="pill" href="#v-pills-re" role="tab">Funding Requests</a>
             </div>
           </div>
           <div class="col-md-9">
@@ -74,14 +73,14 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Doe</td>
-                        <td>John</td>
-                        <td>Admin</td>
+                        <td>Alexander</td>
+                        <td>Joshua</td>
+                        <td>Manager</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>Jackson</td>
-                        <td>Jamal</td>
+                        <td>Nallapareddy</td>
+                        <td>Harshal</td>
                         <td>Member</td>
                       </tr>
                   </table>
@@ -106,30 +105,47 @@
                       </tr>
                       <tr>
                         <th scope="row">2</th>
+                        <td>03/16/24</td>
+                        <td>Travel Expenses</td>
+                        <td>34.91</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>03/01/24</td>
+                        <td>Senior Gifts</td>
+                        <td>12.22</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
                         <td>02/29/24</td>
                         <td>New Equipment</td>
                         <td>54.67</td>
                       </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <th scope="row" style="text-align: right;">Total</th>
+                        <td>120.78</td>
+                      </tr>
                   </table>
               </div>
           <div class="tab-pane fade" id="v-pills-re" role="tabpanel" aria-labelledby="v-pills-re-tab">
-            <h3>Pending Reimbursements</h3>
+            <h3>Funding Requests</h3>
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Member</th>
-                  <th scope="col">Last Name</th>
-                  <th scope="col">First Name</th>
+                  <th scope="col">Request</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Approve</th>
+                  <th scope="col">Notes</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Hawk</td>
-                  <td>Mike</td>
-                  <td>9.11</td>
+                  <td>Spring Competition</td>
+                  <td>119.33</td>
                   <td>
                     <div>
                       <select class="form-select">
@@ -138,12 +154,23 @@
                       </select>
                     </div>
                   </td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Conference</td>
+                  <td>567.11</td>
+                  <td>
+                    <div>
+                      <select class="form-select">
+                        <option>Approve</option>
+                        <option>Deny</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td><input type="text" class="form-control"></td>
                 </tr>
             </table>
-            <div>
-              <label for="notes" class="form-label mt-4">notes</label>
-              <input type="text" class="form-control" id="notes">
-            </div>
             <div class="row justify-content-end">
               <div class="col-auto">
                 <button type="button" class="btn btn-primary">Send</button>

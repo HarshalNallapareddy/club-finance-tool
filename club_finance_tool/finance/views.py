@@ -71,6 +71,7 @@ def member_view(request):
 def manager_view(request):
     user = request.user
     return render(request, 'finance/manager.html')
+    
 
 @login_required
 def institution_view(request):
